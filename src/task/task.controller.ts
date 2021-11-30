@@ -6,17 +6,17 @@ import { Task } from 'src/interfaces/task';
 @Controller('task')
 export class TaskController {
 
-    constructor(private TaskSerive: TaskService){}
+    constructor(private TaskServices: TaskService){}
 
     @Get()
     getTasks():Promise<Task[]>{
-       return  this.TaskSerive.getTasks()
+       return  this.TaskServices.getTasks()
     }
 
 
     @Get(':id')
     getUniqueTask(@Param('id') id:string){
-        return this.TaskSerive.getTask(id)
+        return this.TaskServices.getTask(id)
     }
 
     @Post()
