@@ -20,9 +20,9 @@ export class TaskController {
     }
 
     @Post()
-    createTask(@Body() task: createTaskDto):string{
+    createTask(@Body() task: createTaskDto):Promise<Task>{
         console.log(task)
-        return 'creating task'
+        return this.TaskServices.createTask(task)
     }
 
     @Put('id')
