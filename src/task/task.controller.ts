@@ -9,14 +9,14 @@ export class TaskController {
     constructor(private TaskSerive: TaskService){}
 
     @Get()
-    getTask():Task[]{
+    getTasks():Promise<Task[]>{
        return  this.TaskSerive.getTasks()
     }
 
 
     @Get(':id')
-    getUniqueTask(@Param('id') id:string):Task{
-        return this.TaskSerive.getTask(parseInt(id))
+    getUniqueTask(@Param('id') id:string){
+        return this.TaskSerive.getTask(id)
     }
 
     @Post()
