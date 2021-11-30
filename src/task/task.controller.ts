@@ -13,6 +13,12 @@ export class TaskController {
        return  this.TaskSerive.getTasks()
     }
 
+
+    @Get(':id')
+    getUniqueTask(@Param('id') id:string):Task{
+        return this.TaskSerive.getTask(parseInt(id))
+    }
+
     @Post()
     createTask(@Body() task: createTaskDto):string{
         console.log(task)
